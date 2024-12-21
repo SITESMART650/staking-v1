@@ -29,7 +29,11 @@ jobs:
 
           # Clear the branch and copy the docs folder content to root
           git rm -rf . || true
-          cp -r docs/* ./ || echo "No docs folder content to copy"
+          if [ -d "docs" ]; then
+            cp -r docs/* ./
+          else
+            echo "No docs folder content to copy"
+          fi
 
           # Add, commit, and push changes
           git add .
