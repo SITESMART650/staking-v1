@@ -35,16 +35,13 @@ jobs:
 
           # Clear the branch and copy the docs folder content to root
           git rm -rf . || true
-          if [ -d "docs" ]; then
-            cp -r docs/* ./
+          cp -r docs/* ./
 
-            # Add, commit, and push changes
-            git add .
-            git commit -m "Update web branch with docs content" || echo "No changes to commit"
-            git push origin web --force
+          # Add, commit, and push changes
+          git add .
+          git commit -m "Update web branch with docs content" || echo "No changes to commit"
+          git push origin web --force
 
-          else
-            echo "No docs folder content to copy"
-          fi
+          
 
           
